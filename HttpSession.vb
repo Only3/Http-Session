@@ -1,3 +1,4 @@
+    
     Class HttpSession
 
         Public File As String = "Session.cookie"
