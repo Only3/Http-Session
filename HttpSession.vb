@@ -24,7 +24,6 @@
 
         Function POST(Url As String, Data As String, Optional Proxy As String = Nothing) As String
             Dim R = Request(Url, "POST")
-            R.ContentType = ContentType
             R.ContentLength = Data.Length
             If Proxy IsNot Nothing Then R.Proxy = New Net.WebProxy(Proxy)
             Dim S = R.GetRequestStream()
@@ -42,6 +41,7 @@
             R.Referer = Referer
             R.UserAgent = UserAgent
             R.KeepAlive = KeepAlive
+            R.ContentType = ContentType
             R.AllowAutoRedirect = Redirect
             R.CookieContainer = Cookies
             For Each K In Headers
